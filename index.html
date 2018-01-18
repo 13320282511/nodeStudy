@@ -10,14 +10,31 @@
 <h2 class="wode">点处理</h2>
 <script>
     document.querySelector('.wode').addEventListener('click',function(e){
+//        $.ajax({
+//            url: 'http://192.168.253.1:8080/ajtest',
+//            dataType: 'json',
+//            contentType:"application/json; charset=UTF-8",
+//            type: 'get',
+//            data: {
+//                test: 'ajax'
+//            },
+//            success: function (data) {
+//                console.log(data);
+//            },
+//            error:function(data){
+//                console.log('error',data)
+//            }
+//        })
+
         $.ajax({
-            url: 'http://192.168.253.1:8080/ajtest',
+            url: 'http://192.168.201.150:3000/hello/' +
+            'zhajian',
             dataType: 'json',
-            contentType:"application/json; charset=UTF-8",
+            contentType:"application/json; charset='UTF-8'",
             type: 'get',
-            data: {
-                test: 'ajax'
-            },
+//            data: {
+//                username: 'zhajian'
+//            },
             success: function (data) {
                 console.log(data);
             },
@@ -25,6 +42,7 @@
                 console.log('error',data)
             }
         })
+//        fetch('http://192.168.201.150:3000/hello')
     })
 </script>
 </body>
