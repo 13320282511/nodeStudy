@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="./css/index.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<h1>ok<img src="img/bannner1.jpg"/> </h1>
+<h2 class="ajaxClick">click me</h2>
+<h3 class="ajaxReturn"></h3>
+<script>
+    document.querySelector('.ajaxClick').addEventListener('click',function(e){
+        $.ajax({
+            url: 'http://localhost:8080/indexData.json',
+            dataType: 'json',
+            contentType:"application/json; charset='UTF-8'",
+            type: 'get',
+//            data: {
+//                username: 'zhajian'
+//            },
+            success: function (data) {
+                var content = "";
+                for(var i=0;i<data.datawrap.data.length;i++) {
+                    content += '<h4>'+data.datawrap.data[i].firstName+'</h4>';
+                }
+                console.log('content',content)
+                document.querySelector('.ajaxReturn').append(content)
+//document.querySelector('.ajaxReturn').innerHTML += data.data
+            },
+            error:function(data){
+                console.log('error',data)
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
